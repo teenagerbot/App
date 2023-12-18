@@ -119,7 +119,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                     text: TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: 'Увійти',
+                                          text: 'Login',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineLarge
                                               .override(
@@ -128,7 +128,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                               ),
                                         ),
                                         TextSpan(
-                                          text: ' в додаток',
+                                          text: ' in app',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineLarge
                                               .override(
@@ -326,7 +326,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                         context.goNamedAuth(
                                             'HomePage', context.mounted);
                                       },
-                                      text: 'Увійти',
+                                      text: 'Login',
                                       icon: FaIcon(
                                         FontAwesomeIcons.signInAlt,
                                       ),
@@ -389,7 +389,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
-                                            text: 'Зареєструватися',
+                                            text: 'Register',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
@@ -398,7 +398,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                                 ),
                                           ),
                                           TextSpan(
-                                            text: '\n в додатку',
+                                            text: '\nin app',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
@@ -702,7 +702,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                         context.goNamedAuth(
                                             'HomePage', context.mounted);
                                       },
-                                      text: 'Реєстрація',
+                                      text: 'Registering',
                                       icon: FaIcon(
                                         FontAwesomeIcons.userPlus,
                                       ),
@@ -753,10 +753,10 @@ class _RegPageWidgetState extends State<RegPageWidget>
                         padding: EdgeInsets.all(4.0),
                         tabs: [
                           Tab(
-                            text: 'Вхід',
+                            text: 'Login',
                           ),
                           Tab(
-                            text: 'Реєстрація',
+                            text: 'Register',
                           ),
                         ],
                         controller: _model.tabBarController,

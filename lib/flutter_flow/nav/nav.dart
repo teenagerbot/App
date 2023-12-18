@@ -291,14 +291,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitRipple(
-                      color: FlutterFlowTheme.of(context).primary,
-                      size: 50.0,
-                    ),
+              ? Container(
+                  color: Color(0xFF637D96),
+                  child: Image.asset(
+                    'assets/images/Screenshot_7-removebg-preview.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

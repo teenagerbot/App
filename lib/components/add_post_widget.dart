@@ -238,7 +238,7 @@ class _AddPostWidgetState extends State<AddPostWidget> {
                     });
                     Navigator.pop(context);
                   },
-                  text: 'Опублікувати',
+                  text: 'Publish',
                   icon: FaIcon(
                     FontAwesomeIcons.plus,
                   ),

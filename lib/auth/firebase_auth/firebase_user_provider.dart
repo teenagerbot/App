@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class AppFlutterFirebaseUser extends BaseAuthUser {
-  AppFlutterFirebaseUser(this.user);
+class VloveCFirebaseUser extends BaseAuthUser {
+  VloveCFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -53,18 +53,17 @@ class AppFlutterFirebaseUser extends BaseAuthUser {
 
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
-  static BaseAuthUser fromFirebaseUser(User? user) =>
-      AppFlutterFirebaseUser(user);
+  static BaseAuthUser fromFirebaseUser(User? user) => VloveCFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> appFlutterFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> vloveCFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = AppFlutterFirebaseUser(user);
+        currentUser = VloveCFirebaseUser(user);
         return currentUser!;
       },
     );
