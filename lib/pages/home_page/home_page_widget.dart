@@ -102,7 +102,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Visibility(
-            visible: currentUserEmail == 'volf@gay.mail',
+            visible: currentUserEmail == 'volf@gay.gmail.com',
             child: RichText(
               textScaleFactor: MediaQuery.of(context).textScaleFactor,
               text: TextSpan(
