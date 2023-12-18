@@ -112,7 +112,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: Color(0xFFEF3939),
-                          fontSize: 26.0,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w900,
                         ),
                   ),
@@ -126,7 +126,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                   TextSpan(
                     text: '. Котик',
-                    style: FlutterFlowTheme.of(context).titleMedium,
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily: 'Readex Pro',
+                          fontSize: 12.0,
+                        ),
                   )
                 ],
                 style: FlutterFlowTheme.of(context).bodyMedium,
