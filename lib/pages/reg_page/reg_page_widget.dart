@@ -138,7 +138,10 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineLarge,
+                                          .headlineLarge
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                          ),
                                     ),
                                   ),
                                 ),
