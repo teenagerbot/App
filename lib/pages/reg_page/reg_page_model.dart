@@ -16,6 +16,8 @@ class RegPageModel extends FlutterFlowModel<RegPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -25,33 +27,99 @@ class RegPageModel extends FlutterFlowModel<RegPageWidget> {
   FocusNode? signInEmailFocusNode;
   TextEditingController? signInEmailController;
   String? Function(BuildContext, String?)? signInEmailControllerValidator;
+  String? _signInEmailControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Поле є обов\'язковим';
+    }
+
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+      return 'Has to be a valid email address.';
+    }
+    return null;
+  }
+
   // State field(s) for SignInPassword widget.
   FocusNode? signInPasswordFocusNode;
   TextEditingController? signInPasswordController;
   late bool signInPasswordVisibility;
   String? Function(BuildContext, String?)? signInPasswordControllerValidator;
+  String? _signInPasswordControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Поле є обов\'язковим';
+    }
+
+    if (val.length < 6) {
+      return 'Requires at least 6 characters.';
+    }
+
+    return null;
+  }
+
   // State field(s) for SignUpEmail widget.
   FocusNode? signUpEmailFocusNode;
   TextEditingController? signUpEmailController;
   String? Function(BuildContext, String?)? signUpEmailControllerValidator;
+  String? _signUpEmailControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Поле є обов\'язковим';
+    }
+
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+      return 'Has to be a valid email address.';
+    }
+    return null;
+  }
+
   // State field(s) for SignUpPassword widget.
   FocusNode? signUpPasswordFocusNode;
   TextEditingController? signUpPasswordController;
   late bool signUpPasswordVisibility;
   String? Function(BuildContext, String?)? signUpPasswordControllerValidator;
+  String? _signUpPasswordControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Поле є обов\'язковим';
+    }
+
+    if (val.length < 6) {
+      return 'Requires at least 6 characters.';
+    }
+
+    return null;
+  }
+
   // State field(s) for SignUpConfirmPassword widget.
   FocusNode? signUpConfirmPasswordFocusNode;
   TextEditingController? signUpConfirmPasswordController;
   late bool signUpConfirmPasswordVisibility;
   String? Function(BuildContext, String?)?
       signUpConfirmPasswordControllerValidator;
+  String? _signUpConfirmPasswordControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Поле є обов\'язковим';
+    }
+
+    if (val.length < 6) {
+      return 'Requires at least 6 characters.';
+    }
+
+    return null;
+  }
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    signInEmailControllerValidator = _signInEmailControllerValidator;
     signInPasswordVisibility = false;
+    signInPasswordControllerValidator = _signInPasswordControllerValidator;
+    signUpEmailControllerValidator = _signUpEmailControllerValidator;
     signUpPasswordVisibility = false;
+    signUpPasswordControllerValidator = _signUpPasswordControllerValidator;
     signUpConfirmPasswordVisibility = false;
+    signUpConfirmPasswordControllerValidator =
+        _signUpConfirmPasswordControllerValidator;
   }
 
   void dispose() {

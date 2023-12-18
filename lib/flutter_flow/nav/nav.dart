@@ -96,7 +96,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          asyncParams: {
+            'user': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => HomePageWidget(
+            user: params.getParam('user', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'PostPage',
+          path: '/postPage',
+          asyncParams: {
+            'post': getDoc(['posts'], PostsRecord.fromSnapshot),
+          },
+          builder: (context, params) => PostPageWidget(
+            post: params.getParam('post', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
