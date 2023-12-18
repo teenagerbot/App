@@ -63,39 +63,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).appBackgroundColor,
         floatingActionButton: Visibility(
-          visible: valueOrDefault<bool>(currentUserDocument?.admin, false),
-          child: AuthUserStreamWidget(
-            builder: (context) => FloatingActionButton(
-              onPressed: () async {
-                await showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  useSafeArea: true,
-                  context: context,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () => _model.unfocusNode.canRequestFocus
-                          ? FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode)
-                          : FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.6,
-                          child: AddPostWidget(),
-                        ),
+          visible: (currentUserEmail == 'volf@gay.mail') ||
+              (currentUserEmail == 'f@gmail.com'),
+          child: FloatingActionButton(
+            onPressed: () async {
+              await showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                useSafeArea: true,
+                context: context,
+                builder: (context) {
+                  return GestureDetector(
+                    onTap: () => _model.unfocusNode.canRequestFocus
+                        ? FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode)
+                        : FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height * 0.6,
+                        child: AddPostWidget(),
                       ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
-              },
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              elevation: 8.0,
-              child: FaIcon(
-                FontAwesomeIcons.plusCircle,
-                color: FlutterFlowTheme.of(context).info,
-                size: 40.0,
-              ),
+                    ),
+                  );
+                },
+              ).then((value) => safeSetState(() {}));
+            },
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            elevation: 8.0,
+            child: FaIcon(
+              FontAwesomeIcons.plusCircle,
+              color: FlutterFlowTheme.of(context).info,
+              size: 40.0,
             ),
           ),
         ),
