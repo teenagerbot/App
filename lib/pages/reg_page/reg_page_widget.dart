@@ -585,7 +585,7 @@ class _RegPageWidgetState extends State<RegPageWidget>
                                       obscureText: !_model
                                           .signUpConfirmPasswordVisibility,
                                       decoration: InputDecoration(
-                                        labelText: 'Підтвердіть пароль',
+                                        labelText: 'Ще раз пароль',
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
